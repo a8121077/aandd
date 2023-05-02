@@ -13,14 +13,12 @@ function show(array) {
 
 function createSequentialNumbers(array, n) {
     for (var i = 0; i < n; i++) {
-        array[i] = i + 1
+        array.push(i + 1);
     }
 }
 
-function reateRandomNumbers(array, n) {
-    var random
+function createRandomNumbers(array, n) {
     for (var i = 0; i < n; i++) {
-        random = Math.floor(Math.random() * 100)
-        array[i] = random
+        array.push(Math.floor(Math.random() * 10));
     }
 }
