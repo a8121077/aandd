@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        function runButtonPressed() {
+            var numbers = []
+            var max = 0
+            createRandomNumbers(numbers, 10);
+            for (var i = 0; i < numbers.length; i++) {
+                erch = numbers[i]
+                if (max < erch) {
+                    max = erch
+                }
+            }
+            show(numbers)
+            show(max)
+
+            //prac3-1 10個の乱数の合計を求める（繰り返しで）
+            //prac3-2 10個の乱数の平均を求める
+            //prac3-3 10個の乱数の最大値を求める
+            //prac3-4 10個の乱数の最小値を求める
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>prac3</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <p id="res"></p>
+</body>
+
+</html>
