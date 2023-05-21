@@ -13,23 +13,13 @@
             var numbers = [];
             createOrderedRandomNumbers(numbers, 20);
             show(numbers);
+            var target = document.getElementById('answer').value
+            binarysearch(numbers, target)
         }
         //検索できるようにする探す物以上になったやめるプログラム
         //リニアサーチ
         //バイナリサーチ
         //この関数を，aaandd.jsに加えてください．
-        function createOrderedRandomNumbers(numbers, n) {
-            var count = 0;
-            for (var i = 1; ; i++) {
-                if (Math.floor(Math.random() * 3) == 0) {
-                    numbers.push(i);
-                    count++;
-                    if (count >= n) {
-                        break;
-                    }
-                }
-            }
-        }
 
         //配列以外の変数を表示するために，aaandd.jsの中身を新しいshowに置き換えてください．
         function show(obj) {
@@ -56,8 +46,10 @@
 
 <body>
     <h1>ex4-3</h1>
+    <input type="text" id="answer">
     <button onclick="runButtonPressed()">run!</button>
     <p id="res"></p>
+    <p id='ans'></p>
 </body>
 
 </html>
