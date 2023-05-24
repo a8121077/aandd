@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        function runButtonPressed() {
+            var numbers = [];
+            createOrderedRandomNumbers(numbers, 20);
+            var target = document.getElementById('input').value;
+            var found = false;
+            for (var i = 0; i < numbers.length; i++) {
+                var number = numbers[i];
+                if (number == target) {
+                    found = true;
+                }
+            }
+            document.getElementById('ans').innerHTML = found;
+            show(numbers);
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>ex4-3</h1>
+    <input type="text" id="input">
+    <button onclick="runButtonPressed()">run!</button>
+    <p id="res"></p>
+    <p id='ans'></p>
+</body>
+
+</html>
