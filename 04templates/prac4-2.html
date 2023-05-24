@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        var numbers = [];
+        function runButtonPressed() {
+            createOrderedRandomNumbers(numbers, 40);
+            show(numbers);
+        }
+
+        function binaysearch() {
+            var target = document.getElementById('input').value;
+            var found = false;
+            var lower = 0;
+            var upper = numbers.length - 1;
+            for (; ;) {
+                if (upper - lower == 1) {
+                    if (target == numbers[lower]) {
+                        found = true;
+                        break;
+                    } else if (target == numbers[upper]) {
+                        found = true;
+                        break;
+                    }
+                    break;
+                }
+                var mid = Math.floor((lower + upper) / 2);
+                if (target == numbers[mid]) {
+                    found = true;
+                    break;
+                } else if (target > numbers[mid]) {
+                    lower = mid;
+                } else {
+                    upper = mid;
+                }
+            }
+            document.getElementById('ans').innerHTML = found;
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>ex4-3</h1>
+    <input type="text" id="input">
+    <button onclick="runButtonPressed()">run!</button>
+    <button onclick="binaysearch()">search</button>
+    <p id="res"></p>
+    <p id='ans'></p>
+</body>
+
+</html>
