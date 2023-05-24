@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        var numbers = [];
+        function runButtonPressed() {
+            createRandomNumbers(numbers, 1000);
+            show(numbers);
+        }
+
+        function bubblesort() {
+            var tmp;
+            for (var i = 0; i < numbers.length; i++) {
+                if (numbers[i] > numbers[i + 1]) {
+                    tmp = numbers[i];
+                    numbers[i] = numbers[i + 1];
+                    numbers[i + 1] = tmp
+                }
+            }
+            show(numbers)
+        }
+
+        function autobubblesort() {
+            var startTime = new Date();
+            var tmp;
+            for (var j = 0; j < numbers.length; j++) {
+                for (var i = 0; i < numbers.length; i++) {
+                    if (numbers[i] > numbers[i + 1]) {
+                        tmp = numbers[i];
+                        numbers[i] = numbers[i + 1];
+                        numbers[i + 1] = tmp
+                    }
+                }
+            }
+            show(numbers)
+            var endTime = new Date();
+            var time = endTime - startTime;
+            show(time + 'ミリ秒');
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>時間の測定</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <button onclick="bubblesort()">sort</button>
+    <button onclick="autobubblesort()">autosort</button>
+    <p id="res"></p>
+</body>
+
+</html>
