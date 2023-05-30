@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        var numbers = [];
+        var lower = 0;
+        function runButtonPressed() {
+            createRandomNumbers(numbers, 20);
+            show(numbers);
+        }
+
+        function selectsort() {
+            var min = Number.MAX_SAFE_INTEGER;
+            var indent;
+            var tmp;
+            var upper = numbers.length;
+            for (var i = lower; i < upper; i++) {
+                if (min >= numbers[i]) {
+                    min = numbers[i];
+                    indent = i;
+                }
+            }
+            tmp = numbers[indent];
+            numbers[indent] = numbers[lower];
+            numbers[lower] = tmp;
+            lower = lower + 1;
+            show(numbers);
+        }
+
+        function autoselectsort() {
+            var lower = 0;
+            var upper = numbers.length;
+            for (var j = 0; j < upper; j++) {
+                var min = Number.MAX_SAFE_INTEGER;
+                var indent;
+                var tmp;
+                for (var i = lower; i < upper; i++) {
+                    if (min >= numbers[i]) {
+                        min = numbers[i];
+                        indent = i;
+                    }
+                }
+                tmp = numbers[indent];
+                numbers[indent] = numbers[lower];
+                numbers[lower] = tmp;
+                lower = lower + 1;
+            }
+            show(numbers);
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1>時間の測定</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <button onclick="selectsort()">sort</button>
+    <button onclick="autoselectsort()">autosort</button>
+    <p id="res"></p>
+</body>
+
+</html>
