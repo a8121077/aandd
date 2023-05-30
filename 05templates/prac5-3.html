@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        var numbers = [];
+        var lower = 0;
+        var upper = lower + 1;
+
+        function runButtonPressed() {
+            createRandomNumbers(numbers, 10);
+            show(numbers);
+        }
+
+        function insertsort() {
+            var tmp;
+            var save = lower;
+            var target = upper;
+            for (var i = 0; i < upper; i++) {
+                if (numbers[save] > numbers[target]) {
+                    tmp = numbers[save];
+                    numbers[save] = numbers[target];
+                    numbers[target] = tmp;
+                }
+                save = save - 1;
+                target = target - 1;
+            }
+            lower = lower + 1;
+            upper = upper + 1;
+            show(numbers);
+        }
+
+        function autoinsertsort() {
+            var lower = 0;
+            var upper = lower + 1;
+            for (var j = 0; j < numbers.length; j++) {
+                var tmp;
+                var save = lower;
+                var target = upper;
+                for (var i = 0; i < upper; i++) {
+                    if (numbers[save] > numbers[target]) {
+                        tmp = numbers[save];
+                        numbers[save] = numbers[target];
+                        numbers[target] = tmp;
+                    }
+                    save = save - 1;
+                    target = target - 1;
+                }
+                lower = lower + 1;
+                upper = upper + 1;
+            }
+            show(numbers)
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1>時間の測定</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <button onclick="insertsort()">sort</button>
+    <button onclick="autoinsertsort()">autosort</button>
+    <p id="res"></p>
+</body>
+
+</html>
