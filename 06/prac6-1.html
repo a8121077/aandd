@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script type="text/javascript" src="nouns.js"></script>
+    <script type="text/javascript" src="verbs.js"></script>
+
+    <script>
+        function runButtonPressed() {
+            var text = document.getElementById('tf1').value;
+            var answer = reverseText(text);
+            show(text);
+            show(answer);
+        }
+
+        //文章反転
+        function reverseText(text) {
+            var stack = []
+            var chars = text.split('');
+            for (var i = 0; i < text.length; i++) {
+                stack.push(chars.pop());
+            }
+            var reverse = stack.join('');
+            return reverse;
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1>読み込み，選ぶ</h1>
+    <input type="textfield" id="tf1"></input>
+    <button onclick="runButtonPressed()">run!</button>
+    <p id="res"></p>
+
+</body>
+
+</html>
