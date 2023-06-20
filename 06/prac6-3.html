@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script type="text/javascript" src="nouns.js"></script>
+    <script type="text/javascript" src="verbs.js"></script>
+
+    <script>
+
+        var nouns;
+        var verbs
+
+        $(document).ready(function () {
+            nouns = nounstext.split('\n');
+            verbs = verbstext.split('\n');
+        });
+
+        function runButtonPressed() {
+            var ans = makeSentence()
+            show(ans);
+        }
+
+        //文章作成
+        function makeSentence() {
+            var text = '';
+            var noun1 = selectone(nouns);
+            var noun2 = selectone(nouns);
+            var verb = selectone(verbs);
+            text = noun1 + 'が' + noun2 + 'を' + verb;
+            return text;
+        }
+
+        function selectone(array) {
+            var size = array.length;
+            var index = Math.floor(Math.random() * size);
+            return array[index];
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1>読み込み，選ぶ</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <p id="res"></p>
+
+</body>
+
+</html>
